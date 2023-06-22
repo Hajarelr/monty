@@ -15,8 +15,8 @@ instruction_t instruct[] = {
 			{"pint", f_pint},
 			{"pop", f_pop},
 			{"swap", f_swap},
-			{"add", f_add},
-			{"nop", f_nop},
+			{"add", add},
+			{"nop", nop},
 			{NULL, NULL}
 		};
 		unsigned int i = 0;

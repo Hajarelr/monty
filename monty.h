@@ -56,8 +56,8 @@ void ins_er(FILE *fd, char *b, stack_t *s, char *c, int a);
 void f_pint(stack_t **st, unsigned int l);
 void f_pop(stack_t **st, unsigned int c);
 void f_swap(stack_t **st, unsigned int c);
-void f_add(stack_t **st, unsigned int c);
-void f_nop(stack_t **st, unsigned int c);
+void add(stack_t **st, unsigned int c);
+void nop(stack_t **st, unsigned int c);
 /**
  * struct buffer - Function that stores buffer
  * @arg: value
