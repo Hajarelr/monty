@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 		bus.line = line;
 		i++;
 		if (read_line > 0)
-			execute(line, &stack, i, fd);
+			f_execute(line, &stack, i, fd);
 		free(line);
 	}
 	free_dlistint(stack);
