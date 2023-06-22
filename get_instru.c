@@ -8,6 +8,7 @@ void get_instru(void)
 int n = 0;
 instruction_t instru[] = {
 {"push", &push}, {"pall", &pall},
+{"pint", &pint}, {"pop", &pop},
 {NULL, NULL}
 };
 if (arg->n_tok == 0)
