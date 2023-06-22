@@ -7,11 +7,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/types.h>
-#include <sys/stat.h>
+#include <stddef.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <errno.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -43,25 +41,49 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-stack_t *new_n(int c);
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int n);
-int _isdigit(char *n);
-void exec_cmd(char *argv);
-int get_opc(stack_t **stack, char *c, char *e, int a);
-void free_dlistint(stack_t *stack);
-void push_er(FILE *fd, char *b, stack_t *s, int c);
-void ins_er(FILE *fd, char *b, stack_t *s, char *c, int a);
 /**
- * struct buffer - Function that stores buffer
- * @fd: 1st input
+ * struct arg_s - Function that hold variables
+ * @str: 1st input
  * @line: 2nd input
+ * @line_number: 3th input
+ * @tok: 4th input
+ * @instru: 5th input
+ * @n_tok: 6th input
  */
-typedef struct buffer
+typedef struct arg_s
 {
-	FILE *fd;
-	char *line;
-} buffer_t;
-extern buffer_t buffer;
-extern int value;
+FILE *str;
+char *line;
+unsigned int line_number;
+char **tok;
+int n_tok;
+instruction_t *instru;
+stack_t *head;
+int stack_length;
+int stack;
+} arg_t;
+extern arg_t *arg;
+
+void init_arg();
+void malloc_failed(void);
+void get_str(char *i);
+void tok_line(void);
+void get_instru(void);
+void invalid_instru(void);
+void free_tok(void);
+void close_str(void);
+void run_instru(void);
+int is_digit(char *str);
+void free_arg();
+void free_head(void);
+void free_stack(stack_t *head);
+void free_args(void);
+void v_arg(int argc);
+void delete_stack_node(void);
+int dprintf(int fd, const char *format, ...);
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+FILE *fdopen(int fd, const char *mode);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+
 #endif
