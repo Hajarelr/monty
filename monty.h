@@ -44,24 +44,34 @@ typedef struct instruction_s
 } instruction_t;
 
 stack_t *new_n(int c);
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int n);
+void f_push(stack_t **st, unsigned int c);
+void add_node(stack_t **head, int a);
+void add_queue(stack_t **head, int a);
+void f_pall(stack_t **st, unsigned int c);
 int _isdigit(char *n);
-void exec_cmd(char *argv);
-int get_opc(stack_t **stack, char *c, char *e, int a);
+int execute(char *line, stack_t **stack, unsigned int c, FILE *fd);
 void free_dlistint(stack_t *stack);
 void push_er(FILE *fd, char *b, stack_t *s, int c);
 void ins_er(FILE *fd, char *b, stack_t *s, char *c, int a);
+void f_pint(stack_t **st, unsigned int l);
+void f_pop(stack_t **st, unsigned int c);
+void f_swap(stack_t **st, unsigned int c);
+void f_add(stack_t **st, unsigned int c);
+void f_nop(stack_t **st, unsigned int c);
 /**
  * struct buffer - Function that stores buffer
- * @fd: 1st input
+ * @arg: value
+ * @fd: monty file
  * @line: 2nd input
+ * @lifi: flag change
+ * @d: value through the program
  */
-typedef struct buffer
+typedef struct bus_s
 {
-	FILE *fd;
+	char *arg;
+        FILE *fd;
 	char *line;
-} buffer_t;
-extern buffer_t buffer;
-extern int value;
+        int lifi;
+} bus_t;
+extern bus_t bus;
 #endif

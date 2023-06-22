@@ -1,18 +1,21 @@
 #include "monty.h"
 /**
- * pall - Function that print all the values of the stack
- * @stack: 1st input
- * @n: 2nd input
- * Return: Void
+ * f_pall - print stack
+ * @st: head
+ * @c: no used
+ * Return: void
  */
-void pall(stack_t **stack, unsigned int n)
+void f_pall(stack_t **st, unsigned int c)
 {
-stack_t *m = NULL;
-(void)n;
-m = *stack;
-while (m != NULL)
-{
-dprintf(STDOUT_FILENO, "%d\n", m->n);
-m = m->next;
-}
+	stack_t *h;
+	(void)c;
+
+	h = *st;
+	if (h == NULL)
+		return;
+	while (h)
+	{
+		printf("%d\n", h->n);
+		h = h->next;
+	}
 }

@@ -7,11 +7,11 @@
 void free_dlistint(stack_t *n)
 {
 stack_t *m;
+m = n;
 while (n)
 {
-m = n;
-n = n->next;
-free(m);
-}
+m = n->next;
 free(n);
+n = m;
+}
 }
