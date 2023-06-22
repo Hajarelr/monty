@@ -20,24 +20,24 @@ instruction_t instruct[] = {
 			{NULL, NULL}
 		};
 		unsigned int i = 0;
-		char *op;
+		char *o;
 
-		op = strtok(line, " \n\t");
-		if (op && op[0] == '#')
+		o = strtok(line, " \n\t");
+		if (o && o[0] == '#')
 			return (0);
 		bus.arg = strtok(NULL, " \n\t");
-		while (instruct[i].opcode && op)
+		while (instruct[i].opcode && o)
 		{
-			if (strcmp(op, instruct[i].opcode) == 0)
+			if (strcmp(o, instruct[i].opcode) == 0)
 			{
 				instruct[i].f(stack, c);
 				return (0);
 			}
 			i++;
 		}
-		if (op && instruct[i].opcode == NULL)
+		if (o && instruct[i].opcode == NULL)
 		{
-			 fprintf(stderr, "L%d: unknown instruction %s\n", c, op);
+			 fprintf(stderr, "L%d: unknown instruction %s\n", c, o);
 			 fclose(fd);
 			 free(line);
 			 free_dlistint(*stack);
