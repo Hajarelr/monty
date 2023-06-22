@@ -11,9 +11,7 @@ void f_pall(stack_t **st, unsigned int c)
 	(void)c;
 
 	h = *st;
-	if (h == NULL)
-		return;
-	while (h)
+	while (h != NULL)
 	{
 		printf("%d\n", h->n);
 		h = h->next;
