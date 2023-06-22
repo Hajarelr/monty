@@ -7,7 +7,7 @@
  * @line: line content
  * Return: void
  */
-int execute(char *line, stack_t **stack, unsigned int c, FILE *fd)
+int f_execute(char *line, stack_t **stack, unsigned int c, FILE *fd)
 {
 instruction_t instruct[] = {
 			{"push", f_push},
