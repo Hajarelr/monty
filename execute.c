@@ -14,8 +14,8 @@ int execute(char *line, stack_t **stack, unsigned int c, FILE *fd)
 			{"pall", f_pall},
 			{"pint", f_pint},
 			{"pop", f_pop},
-			/*{"swap", f_swap},
-			{"add", f_add},
+			{"swap", f_swap},
+			/*{"add", f_add},
 			{"nop", f_nop},*/
 			{NULL, NULL}
 		};
